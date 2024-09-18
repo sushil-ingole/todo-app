@@ -1,0 +1,16 @@
+<div class="todo-container">
+    <h1>To-Do List</h1>
+    <div class="input-container">
+        <input type="text" [(ngModel)]="newTodo" placeholder="Add a new task" #newTodoRef />
+        <button (click)="addTodo()">Add</button>
+    </div>
+    <ul>
+        <li *ngFor="let todo of todos; let i = index">
+            <span [class.completed]="todo.completed">{{ todo.task }}</span>
+            <button (click)="toggleComplete(i)">
+                {{ todo.completed ? 'Undo' : 'Complete' }}
+            </button>
+            <button (click)="removeTodo(i)">Remove</button>
+        </li>
+    </ul>
+</div>
